@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
     _scrollController.addListener(() {
       setState(() {
         _scrollOffset = _scrollController.offset;
@@ -34,6 +33,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    precacheImage(AssetImage('assets/images/gold.jpeg'), context);
+    precacheImage(AssetImage('assets/images/blue.jpeg'), context);
+    
     return  Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(

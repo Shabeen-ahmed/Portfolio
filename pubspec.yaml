@@ -39,6 +39,8 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_native_splash: ^2.4.1
   provider: ^6.0.0
+  get: ^4.6.6
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +69,7 @@ flutter:
     - assets/ss.png
     - assets/gradientbg.png
     - assets/images/
+    - assets/lottie/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

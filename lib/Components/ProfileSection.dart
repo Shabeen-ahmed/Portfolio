@@ -63,7 +63,16 @@ class ProfileSection extends StatelessWidget {
                     child:
                     Provider.of<ThemeProvider>(context, listen: false).isDarkTheme?
                     Image.asset('assets/images/gold.jpeg',height: 110,):
-                    Image.asset('assets/images/blue.jpeg',height: 110,)),
+                    Image.asset('assets/images/blue.jpeg',height: 110,)
+                    // FadeInImage.assetNetwork(
+                    //   placeholder: 'assets/images/gold.jpeg',
+                    //   image: 'assets/images/blue.jpeg',
+                    //   height: 110,
+                    //   fit: BoxFit.cover,
+                    //   fadeInDuration: Duration(milliseconds: 300), // Duration for fade-in animation
+                    //   fadeOutDuration: Duration(milliseconds: 300), // Duration for fade-out animation
+                    // )
+                ),
               ),
               const SizedBox(height: 20),
               Text(
