@@ -79,6 +79,12 @@ class ProjectsSection extends StatelessWidget {
                           link: 'https://github.com/Shabeen-ahmed/flutter-social.git',
                           scrollController: scrollController,
                         ),
+                        ProjectCard(
+                          title: 'My Portfolio',
+                          description: 'Extras - You can find the code used to create this portfolio in my github.',
+                          link: 'https://github.com/Shabeen-ahmed/Portfolio.git',
+                          scrollController: scrollController,
+                        ),
 
 
                       ],

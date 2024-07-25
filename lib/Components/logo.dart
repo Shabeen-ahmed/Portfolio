@@ -82,6 +82,7 @@ logo({Widget? child, double? height, required BuildContext context}) => Transfor
                         const SizedBox(
                           height: 50,
                           width: 50,
+
                         ),
                   ),
                 ),
