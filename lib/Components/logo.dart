@@ -82,7 +82,6 @@ logo({Widget? child, double? height, required BuildContext context}) => Transfor
                         const SizedBox(
                           height: 50,
                           width: 50,
-
                         ),
                   ),
                 ),
@@ -92,3 +91,53 @@ logo({Widget? child, double? height, required BuildContext context}) => Transfor
     ),
   ),
 );
+
+
+class RotatingLogo extends StatefulWidget {
+  final Widget? child;
+  final double? height;
+
+  const RotatingLogo({Key? key, this.child, this.height}) : super(key: key);
+
+  @override
+  _RotatingLogoState createState() => _RotatingLogoState();
+}
+
+class _RotatingLogoState extends State<RotatingLogo> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 15),
+      vsync: this,
+    )..repeat(); // Make the animation repeat forever
+
+    _animation = Tween<double>(begin: 0, end: 2 * 3.14).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _animation,
+      builder: (context, child) {
+        return Transform.rotate(
+          angle: _animation.value,
+          child: logo(
+            child: widget.child,
+            height: widget.height,
+            context: context,
+          ),
+        );
+      },
+    );
+  }
+}

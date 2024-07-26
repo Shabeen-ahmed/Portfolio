@@ -41,6 +41,8 @@ dependencies:
   provider: ^6.0.0
   get: ^4.6.6
   lottie: ^3.1.2
+  widget_to_image: ^2.0.0
+  share_plus: ^9.0.0
 
 dev_dependencies:
   flutter_test:
@@ -66,9 +68,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/ss.png
     - assets/gradientbg.png
-    - assets/images/
+    - assets/images/blue.JPEG
+    - assets/images/gold.JPEG
     - assets/lottie/
   #   - images/a_dot_ham.jpeg
 

@@ -40,7 +40,6 @@ class ProjectsSection extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                       color: Theme.of(context).customGradientColors.secondaryAccentColor,
-
                     borderRadius: BorderRadius.circular(18)
                   ),
                   child: Padding(

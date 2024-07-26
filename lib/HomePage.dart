@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -34,9 +35,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    precacheImage(AssetImage('assets/images/gold.jpeg'), context);
-    precacheImage(AssetImage('assets/images/blue.jpeg'), context);
-    
+    // precacheImage(AssetImage('assets/images/gold.jpeg'), context);
+    // precacheImage(AssetImage('assets/images/blue.jpeg'), context);
+
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return  Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -44,20 +48,21 @@ class _HomePageState extends State<HomePage> {
               onTap: (){
                 Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
               },
-              child:logo(
+              child:RotatingLogo(
               child: const SizedBox(
                 height: 20,
                 width: 20,
               ),
-              height: 10,
-              context: context)),
+              height: 10,)
+
+          ),
           // backgroundColor: Colors.white.withOpacity(0.8),
           backgroundColor: Theme.of(context).customGradientColors.secondaryAccentColor.withOpacity(0.8),
           elevation: 65,
           // shadowColor: Colors.blue[800],
           shadowColor: Theme.of(context).customGradientColors.accentColor,
           centerTitle: true,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft:Radius.circular(20),bottomRight: Radius.circular(20))),
         ),
         body: CustomPaint(
           painter: GradientCirclesPainter(_scrollOffset, context),
@@ -80,16 +85,16 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 40,
                 ),
-                const GlassMorphism(
+                 GlassMorphism(
                   child: Padding(
                     padding: EdgeInsets.all(18.0),
-                    child: ProfileSection(),
+                    child: ProfileSection(height: height, width: width,),
                   ),
                 ),
                 const SizedBox(height: 40),
                 ProjectsSection(scrollController: _scrollController),
                 const SizedBox(height: 40),
-                const ContactSection(),
+                 ContactSection(width: width,),
                 const SizedBox(height: 40),
                 const Text(
                   '© 2024 Mohamed Shabeen Ahamed',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolioo/utils/Globals.dart';
 
 
 class ThemeProvider extends ChangeNotifier {
@@ -97,7 +98,7 @@ class CustomTheme {
     textTheme: TextTheme(
       displayLarge: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.w500, color: Colors.black87),
       headlineMedium:  GoogleFonts.poppins(
-        fontSize: 38,
+        fontSize:38,
         fontWeight: FontWeight.w300,
         color: Colors.white70,
         shadows: [
@@ -113,7 +114,7 @@ class CustomTheme {
     ),
     brightness: Brightness.light,
     extensions: <ThemeExtension<dynamic>>[
-      CustomGradientAndColors(
+      CustomThemeColors(
         circleOneTheme: LightThemeColors.circleOneTheme,
         circleTwoTheme: LightThemeColors.circleTwoTheme,
         accentColor: LightThemeColors.accentColor,
@@ -127,9 +128,9 @@ class CustomTheme {
     useMaterial3: true,
     bottomSheetTheme: const BottomSheetThemeData(showDragHandle: true, dragHandleColor: Colors.black87, backgroundColor: Colors.transparent),
     textTheme: TextTheme(
-      headlineSmall: GoogleFonts.poppins(fontSize: 28, color: Colors.white.withOpacity(0.8)),
+      headlineSmall: GoogleFonts.poppins(fontSize: 28, color: Colors.white.withOpacity(0.65)),
       headlineMedium:  GoogleFonts.poppins(
-        fontSize: 40,
+        fontSize:40,
         fontWeight: FontWeight.w300,
         color: const Color(0xFFDAA520),
         shadows: [
@@ -147,7 +148,7 @@ class CustomTheme {
 
     // brightness: Brightness.dark,
     extensions: <ThemeExtension<dynamic>>[
-      CustomGradientAndColors(
+      CustomThemeColors(
         circleOneTheme: DarkThemeColors.circleOneTheme,
         circleTwoTheme: DarkThemeColors.circleTwoTheme,
         accentColor: DarkThemeColors.accentColor,
@@ -158,8 +159,8 @@ class CustomTheme {
 }
 
 @immutable
-class CustomGradientAndColors extends ThemeExtension<CustomGradientAndColors> {
-   const CustomGradientAndColors({
+class CustomThemeColors extends ThemeExtension<CustomThemeColors> {
+   const CustomThemeColors({
      required this.circleOneTheme,
      required this.circleTwoTheme,
      required this.accentColor,
@@ -172,13 +173,13 @@ class CustomGradientAndColors extends ThemeExtension<CustomGradientAndColors> {
   final Color secondaryAccentColor;
 
   @override
-  CustomGradientAndColors copyWith({
+  CustomThemeColors copyWith({
     RadialGradient? circleOneTheme,
     RadialGradient? circleTwoTheme,
     Color? accentColor,
     Color? secondaryAccentColor,
   }) {
-    return CustomGradientAndColors(
+    return CustomThemeColors(
       circleOneTheme: circleOneTheme ?? this.circleOneTheme,
       circleTwoTheme: circleTwoTheme ?? this.circleTwoTheme,
       accentColor: accentColor ?? this.accentColor,
@@ -187,11 +188,11 @@ class CustomGradientAndColors extends ThemeExtension<CustomGradientAndColors> {
   }
 
   @override
-  CustomGradientAndColors lerp(ThemeExtension<CustomGradientAndColors>? other, double t) {
-    if (other is! CustomGradientAndColors) {
+  CustomThemeColors lerp(ThemeExtension<CustomThemeColors>? other, double t) {
+    if (other is! CustomThemeColors) {
       return this;
     }
-    return CustomGradientAndColors(
+    return CustomThemeColors(
       circleOneTheme: RadialGradient.lerp(circleOneTheme, other.circleOneTheme, t)!,
       circleTwoTheme: RadialGradient.lerp(circleTwoTheme, other.circleTwoTheme, t)!,
       accentColor: Color.lerp(accentColor, other.accentColor, t)!,
@@ -201,7 +202,7 @@ class CustomGradientAndColors extends ThemeExtension<CustomGradientAndColors> {
 }
 
 extension CustomThemeExtension on ThemeData {
-  CustomGradientAndColors get customGradientColors {
-    return extension<CustomGradientAndColors>()!;
+  CustomThemeColors get customGradientColors {
+    return extension<CustomThemeColors>()!;
   }
 }

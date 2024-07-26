@@ -37,7 +37,7 @@ class _ProjectCardState extends State<ProjectCard> {
       final cardPosition = context.findRenderObject()!.getTransformTo(null).getTranslation().y;
 
       setState(() {
-        if (cardPosition < scrollPosition + screenHeight && cardPosition > scrollPosition) {
+        if (cardPosition < scrollPosition + screenHeight && cardPosition > scrollPosition-100) {
           scale = 0.9;
         } else {
           scale = 1.0;

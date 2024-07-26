@@ -7,7 +7,8 @@ import '../ThemeManager.dart';
 
 
 class ProfileSection extends StatelessWidget {
-  const ProfileSection({super.key});
+   ProfileSection({required this.height,required this.width,super.key});
+final double height,width;
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +63,8 @@ class ProfileSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                     child:
                     Provider.of<ThemeProvider>(context, listen: false).isDarkTheme?
-                    Image.asset('assets/images/gold.jpeg',height: 110,):
-                    Image.asset('assets/images/blue.jpeg',height: 110,)
+                    Image.asset('assets/images/gold.JPEG',height: 110,):
+                    Image.asset('assets/images/blue.JPEG',height: 110,)
                     // FadeInImage.assetNetwork(
                     //   placeholder: 'assets/images/gold.jpeg',
                     //   image: 'assets/images/blue.jpeg',
@@ -165,13 +166,16 @@ class ProfileSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 100.0),
-          child: Text(
-            'I am a passionate Flutter developer with experience in building cross-platform mobile applications. '
-            'I focus on creating smooth, responsive, and user-friendly interfaces while creating manageable code with MVVM architecture. Proficient in using Getx and Provider to manage states.',
-            style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Colors.white54),
-            textAlign: TextAlign.justify,
+        Center(
+          child:
+          SizedBox(
+            width: width*0.8,
+            child: Text(
+              'I am a passionate Flutter developer with experience in building cross-platform mobile applications. '
+              'I focus on creating smooth, responsive, and user-friendly interfaces while creating manageable code with MVVM architecture. Proficient in using Getx and Provider to manage states.',
+              style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Colors.white54),
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
       ],

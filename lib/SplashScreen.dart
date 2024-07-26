@@ -24,10 +24,10 @@ class _SplashscreenState extends State<Splashscreen> {
     await Future.delayed(const Duration(seconds: 2));
 
     // Precache images
-    await Future.wait([
-      precacheImage(const AssetImage('assets/images/gold.jpeg'), context),
-      precacheImage(const AssetImage('assets/images/blue.jpeg'), context),
-    ]);
+    // await Future.wait([
+    //   // precacheImage(const AssetImage('assets/images/gold.jpeg'), context),
+    //   // precacheImage(const AssetImage('assets/images/blue.jpeg'), context),
+    // ]);
 
     // Navigate to HomePage with transition
     Get.offAll(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolioo/SplashScreen.dart';
+import 'package:portfolioo/utils/Globals.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'ThemeManager.dart';
@@ -108,6 +109,7 @@ class _MyAppState extends State<MyApp> {
     // precacheImage(AssetImage('assets/images/gold.jpeg'), context);
     // precacheImage(AssetImage('assets/images/blue.jpeg'), context);
     // precacheImage(AssetImage('assets/gradientbg.png'), context);
+    Globals.setDimensions(context);
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         return GetMaterialApp(
